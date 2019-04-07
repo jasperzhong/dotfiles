@@ -7,12 +7,12 @@ sudo chsh -s /bin/zsh
 # oh-my-zsh
 sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
-mv .zshrc ~/.zshrc
+cp .zshrc ~/.zshrc
 
 # tmux
 sudo apt-get install tmux
 
-mv .tmux.conf ~/.tmux.conf
+cp .tmux.conf ~/.tmux.conf
 
 mkdir ~/Tools
 git clone https://github.com/tmux-plugins/tmux-resurrect ~/Tools

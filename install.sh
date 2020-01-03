@@ -17,6 +17,7 @@ sudo apt-get install -y libevent-dev libncurses5-dev
 git checkout 2.9a
 sh autogen.sh
 ./configure && make
+sudo make install 
 
 # tmux-config
 cd ~/repos
@@ -25,5 +26,6 @@ cd tmux-config
 ./install.sh
 
 # vim
+cd ~/
 curl https://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh
 echo colorscheme ir_black  >> ~/.vimrc.local

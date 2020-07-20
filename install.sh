@@ -9,7 +9,7 @@ sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install
 cp .zshrc ~/.zshrc
 
 # tmux
-sudo apt remove tmux
+sudo apt remove -y tmux
 mkdir ~/repos && cd ~/repos
 git clone https://github.com/tmux/tmux.git
 cd tmux
@@ -21,7 +21,7 @@ sudo make install
 
 # tmux-config
 cd ~/repos
-git clone https://github.com/samoshkin/tmux-config.git
+git clone https://github.com/vycezhong/tmux-config.git
 cd tmux-config
 ./install.sh
 

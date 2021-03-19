@@ -27,5 +27,4 @@ cd tmux-config
 
 # vim
 cd ~/
-curl https://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh
-echo colorscheme ir_black  >> ~/.vimrc.local
+cp .vimrc ~/.vimrc

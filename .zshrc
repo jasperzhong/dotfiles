@@ -8,7 +8,7 @@ export ZSH="/home/ubuntu/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="candy"
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -96,6 +96,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
+
 if [[ -z "$TMUX" ]] ;then
     ID="$( tmux ls | grep -vm1 attached | cut -d: -f1 )" # get the id of a deattached session
     if [[ -z "$ID" ]] ;then # if not available create a new one
@@ -105,18 +106,3 @@ if [[ -z "$TMUX" ]] ;then
     fi
 fi
 
-# >>> conda init >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$(CONDA_REPORT_ERRORS=false '/home/ubuntu/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    \eval "$__conda_setup"
-else
-    if [ -f "/home/ubuntu/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/ubuntu/anaconda3/etc/profile.d/conda.sh"
-        CONDA_CHANGEPS1=false conda activate mxnet_p36
-    else
-        \export PATH="/home/ubuntu/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda init <<<

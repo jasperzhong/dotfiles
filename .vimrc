@@ -67,9 +67,10 @@ let g:ycm_filetype_whitelist = {
 			\ "sh":1,
 			\ "zsh":1,
 			\ "zimbu":1,
-			\ "python":1
+			\ "python":1,
+			\ "go":1,
 			\ }
-let g:pydocstring_doq_path='/opt/anaconda3/envs/bpf/bin/doq'
+let g:pydocstring_doq_path='/home/vyce/.local/bin/doq'
 
 syntax on
 set encoding=utf-8

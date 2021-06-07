@@ -13,7 +13,7 @@ sudo apt remove -y tmux
 mkdir ~/repos && cd ~/repos
 git clone https://github.com/tmux/tmux.git
 cd tmux
-sudo apt-get install -y libevent-dev libncurses5-dev
+sudo apt-get install -y libevent-dev libncurses5-dev automake
 git checkout 2.9a
 sh autogen.sh
 ./configure && make

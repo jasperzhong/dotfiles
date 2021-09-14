@@ -28,3 +28,32 @@ cd tmux-config
 # vim
 cd ~/
 cp .vimrc ~/.vimrc
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+# open vim and :PluginInstall
+
+# vim plugin - YouCompleteMe
+sudo apt-get install g++-8
+sudo add-apt-repository ppa:jonathonf/vim
+sudo apt update
+sudo apt install vim
+# install cmake (ignore here)
+sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 20
+cd ~/.vim
+git clone --depth 1 https://github.com/ycm-core/YouCompleteMe.git
+cd YouCompleteMe
+git submodule update --init --recursive
+./install --clangd-completer 
+
+
+# vim plugin - tagbar
+cd ~/repos
+git clone https://github.com/universal-ctags/ctags.git
+cd ctags
+./autogen.sh
+./configure --prefix=/usr/local
+make
+sudo make install
+
+# vim plugin - vim-flake8
+pip3 install flake8
+

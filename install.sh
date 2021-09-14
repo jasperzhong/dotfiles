@@ -37,12 +37,13 @@ sudo add-apt-repository ppa:jonathonf/vim
 sudo apt update
 sudo apt install vim
 # install cmake (ignore here)
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 20
 sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 20
 cd ~/.vim
 git clone --depth 1 https://github.com/ycm-core/YouCompleteMe.git
 cd YouCompleteMe
 git submodule update --init --recursive
-./install --clangd-completer 
+./install.py --clangd-completer 
 
 
 # vim plugin - tagbar

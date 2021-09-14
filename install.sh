@@ -32,7 +32,7 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 # open vim and :PluginInstall
 
 # vim plugin - YouCompleteMe
-sudo apt-get install g++-8
+sudo apt-get install g++-8 clangd-10 clang-7
 sudo add-apt-repository ppa:jonathonf/vim
 sudo apt update
 sudo apt install vim

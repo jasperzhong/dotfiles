@@ -58,3 +58,6 @@ sudo make install
 # vim plugin - vim-flake8
 pip3 install flake8
 
+# vim plugin - vim-autoformat
+sudo apt-get install -y clang-format
+pip3 install autopep8

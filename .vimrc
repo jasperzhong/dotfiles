@@ -47,6 +47,7 @@ inoremap jk <ESC>
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
+nnoremap <leader>jr :YcmCompleter GoToReferences<CR>
 nmap <C-b> :TagbarToggle<CR>
 nmap <F3> :Autoformat<CR>
 nmap <C-s> :Pydocstring<CR>

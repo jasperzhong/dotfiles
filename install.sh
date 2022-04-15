@@ -21,7 +21,7 @@ sudo make install
 
 # tmux-config
 cd ~/repos
-git clone https://github.com/vycezhong/tmux-config.git
+git clone https://github.com/yuchenzhong/tmux-config.git
 cd tmux-config
 ./install.sh
 

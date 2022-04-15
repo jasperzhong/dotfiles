@@ -6,7 +6,7 @@ sudo chsh -s $(which zsh) $(whoami)
 
 # oh-my-zsh
 sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-cp .zshrc ~/.zshrc
+wget https://raw.githubusercontent.com/yuchenzhong/dotfiles/master/.zshrc -O .zshrc
 
 # tmux
 sudo apt remove -y tmux

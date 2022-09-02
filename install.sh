@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 # check installation
 alias conda='/opt/anaconda3/bin/conda'

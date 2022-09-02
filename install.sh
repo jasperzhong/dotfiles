@@ -1,13 +1,8 @@
 #/bin/bash
 
 # check installation
-if ! conda -v &> /dev/null; then
+if ! /opt/anaconda3/bin/conda -v &> /dev/null; then
     echo "conda is not installed"
-    exit
-fi
-
-if ! nvcc -V &> /dev/null; then
-    echo "nvcc is not installed"
     exit
 fi
 

@@ -1,63 +1,79 @@
 #/bin/bash
 
+# check installation
+if ! conda -v &> /dev/null; then
+    echo "conda is not installed"
+    exit
+fi
+
+if ! nvcc -V &> /dev/null; then
+    echo "nvcc is not installed"
+    exit
+fi
+
+# git
+git config --global user.name "jasperzhong"
+git config --global user.email "izhongyuchen@gmail.com"
+
 # zsh
-sudo apt-get install -y zsh
-sudo chsh -s $(which zsh) $(whoami)
+apt-get install -y zsh
+chsh -s $(which zsh) $(whoami)
 
 # oh-my-zsh
-sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 wget https://raw.githubusercontent.com/yuchenzhong/dotfiles/master/.zshrc -O .zshrc
 
+# conda
+conda init zsh
+conda create -n jasper -y python=3.8
+echo "conda activate jasper" >> ~/.zshrc
+source ~/.zshrc
+
+echo `which python`
+
 # tmux
-sudo apt remove -y tmux
+apt remove -y tmux
 mkdir ~/repos && cd ~/repos
-git clone https://github.com/tmux/tmux.git
-cd tmux
-sudo apt-get install -y libevent-dev libncurses5-dev automake
+git clone https://github.com/tmux/tmux.git && cd tmux
+apt-get install -y libevent-dev libncurses5-dev automake
 git checkout 2.9a
 sh autogen.sh
 ./configure && make
-sudo make install 
+make install
 
 # tmux-config
 cd ~/repos
-git clone https://github.com/yuchenzhong/tmux-config.git
-cd tmux-config
+git clone https://github.com/yuchenzhong/tmux-config.git && cd tmux-config
 ./install.sh
 
-# vim
-cd ~/
-cp .vimrc ~/.vimrc
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-# open vim and :PluginInstall
+# neovim
+add-apt-repository -y ppa:neovim-ppa/stable
+apt-get update
+apt-get install -y neovim
+pip install neovim
+git clone https://github.com/yuchenzhong/nvim.git ~/.config/nvim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# vim plugin - YouCompleteMe
-sudo apt-get install g++-8 clangd-10 clang-7
-sudo add-apt-repository ppa:jonathonf/vim
-sudo apt update
-sudo apt install vim
-# install cmake (ignore here)
-sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 20
-sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 20
-cd ~/.vim
-git clone --depth 1 https://github.com/ycm-core/YouCompleteMe.git
-cd YouCompleteMe
-git submodule update --init --recursive
-./install.py --clangd-completer 
+# nodejs
+curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
+apt-get install -y nodejs
 
+# LSP
+apt-get install clangd-12
+ln -s /usr/bin/clangd-12 /usr/bin/clangd
+pip install cmake-language-server
+pip install pyright
 
-# vim plugin - tagbar
+# tagbar
 cd ~/repos
-git clone https://github.com/universal-ctags/ctags.git
-cd ctags
+git clone https://github.com/universal-ctags/ctags.git && cd ctags
 ./autogen.sh
 ./configure --prefix=/usr/local
 make
-sudo make install
+make install
 
-# vim plugin - vim-flake8
-pip3 install flake8
+# vim-autoformat
+apt-get install -y clang-format
+pip install autopep8
 
-# vim plugin - vim-autoformat
-sudo apt-get install -y clang-format
-pip3 install autopep8
+

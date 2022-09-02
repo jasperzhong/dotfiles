@@ -5,6 +5,7 @@ if ! /opt/anaconda3/bin/conda -v &> /dev/null; then
     echo "conda is not installed"
     exit
 fi
+alias conda='/opt/anaconda3/bin/conda'
 
 # git
 git config --global user.name "jasperzhong"
